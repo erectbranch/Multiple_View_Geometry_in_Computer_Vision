@@ -19,6 +19,18 @@ Springer · 2022년 1월 5일 출시(2nd)</br>
 
   > Computer Vision 분야의 기본 개념을 공부하고, 이를 바탕으로 다양한 Computer Vision 알고리즘을 구현해본다.
 
+</br>
+
+## 🚩 정리한 문서 목록
+
+### 🖼 Image
+
+ - [Image Formation](https://github.com/erectbranch/Computer_Vision_Basic/tree/master/ch02)
+
+   > intensity, pinhole camera, focal length, properties of projection(distant, vanishing point), geometric properties
+
+   > COP, PP, homogeneous coordinates
+
 <br/>
 
 ## :mag: 목차
