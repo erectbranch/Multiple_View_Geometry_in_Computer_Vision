@@ -29,7 +29,9 @@ Springer · 2022년 1월 5일 출시(2nd)</br>
 
    > intensity, pinhole camera, focal length, properties of projection(distant, vanishing point), geometric properties
 
-   > COP, PP, homogeneous coordinates
+   > COP, PP, Euclidean space, homogeneous coordinates, point at infinity, line at infinity
+
+   > DOF(Degree Of Freedom)
 
 <br/>
 
