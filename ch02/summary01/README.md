@@ -203,7 +203,7 @@ $$ (X,Y,Z) \rightarrow (f{{X} \over {Z}}, f{{Y} \over {Z}}) $$
 
 - $x_{1}x_{2}$ 평면에 있는 선이 ideal point(이상점)을 나타낸다.
 
-- $x_{1}x_{2}$ 평면 자체가 line at infinity(무한선)을 나타낸다.
+- $x_{1}x_{2}$ 평면이 line at infinity(무한선)을 나타낸다.
 
 ---
 
