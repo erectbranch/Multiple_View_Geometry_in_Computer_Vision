@@ -25,7 +25,7 @@ Cambridge University Press · 2004년 3월 25일 출시</br>
 
 ### 🖼 Image
 
- - [Image Formation](https://github.com/erectbranch/Computer_Vision_Basic/tree/master/ch02/summary01)
+ - [Image Formation](https://github.com/erectbranch/Multiple_View_Geometry_in_Computer_Vision/tree/master/Part0/summary01)
 
    > intensity, pinhole camera, focal length, properties of projection(distant, vanishing point), geometric properties
 
