@@ -24,9 +24,9 @@ pinhole camera model을 다시 한 번 살펴보자. 기본적으로 pinhole mod
 
   > **camera center**(카메라 중심) 혹은 **optical center**(광학 중심)으로도 부른다.
 
-  > origin에서 image plane $Z$ 에 수직인 선을 camera의 **principal axis**(주축) 혹은 **principle ray**(주광선)이라고 부른다.
+  > origin에서 image plane $Z$ 에 수직인 선을 camera의 **principal axis**(주축) 혹은 **principal ray**(주광선)이라고 부른다.
 
-  > principal axis와 image plane이 만나는 점은 **principle point**(주점)이다.
+  > principal axis와 image plane이 만나는 점은 **principal point**(주점)이다.
 
   > image plane과 평행하게 origin을 지나는 평면은 **principal plane**(주평면)이다.
 
@@ -108,7 +108,7 @@ $$y' = {\beta}{{y} \over {z}}$$
 
 ### 6.1.3 camera coordinate frame
 
-이제 **principle point**(주점)의 좌표( $c_{x}, c_{y}$ )를 고려해서 offset항을 추가해 보자.
+이제 **principal point**(주점)의 좌표( $c_{x}, c_{y}$ )를 고려해서 offset항을 추가해 보자.
 
 ![offset](images/offset.png)
 
@@ -266,7 +266,7 @@ P' \rightarrow \begin{bmatrix} RS & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \
 
 ---
 
-### 6.2.5 3D transform: transform, rotation
+### 6.2.5 3D transform: translation, rotation
 
 4D homogeneous coordinates로 나타내게 된다. 
 

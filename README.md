@@ -33,6 +33,22 @@ Cambridge University Press · 2004년 3월 25일 출시</br>
 
    > DOF(Degree Of Freedom)
 
+ - [Image Formation](https://github.com/erectbranch/Multiple_View_Geometry_in_Computer_Vision/tree/master/Part1/summary01)
+
+   > principal axis, principal point, principal plane
+
+   > camera coordinate frame, camera calibration matrix(square pixels/non-square pixels), camera skewness, canonical projective transformation
+
+   > world reference system, 2D transform(translation, scaling, rotation, similarity transformation), 3D transform(translation, rotation, rigid transformation)
+
+   > projective transformation(internal parameter, external parameter)
+
+ - [Epipolar Geometry](https://github.com/erectbranch/Multiple_View_Geometry_in_Computer_Vision/tree/master/Part2/summary01)
+
+   > epipole, epipolar line, epipolar plane
+
+   > fundamental matrix, geometric derivation, algebraic derivation, fundamental matrix properties
+
 <br/>
 
 ## :mag: 목차
