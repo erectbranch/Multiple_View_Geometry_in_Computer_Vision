@@ -305,13 +305,19 @@ $$ \mathbf{x} = (x_{1}, x_{2}, x_{3})^{\mathsf{T}} $$
 
 - $\mathbf{l}' = (a', b', c')^{\mathsf{T}}$
 
-외적을 계산하면 다음과 같다.
+cross product를 계산하면 다음과 같다.
 
-$$ \mathbf{x} = \mathbf{l} \times \mathbf{l}' = \begin{bmatrix} \hat{i} & \hat{j} & \hat{k} \\ a & b & c \\ a' & b' & c \end{bmatrix} $$
+```math
+\mathbf{x} = \mathbf{l} \times \mathbf{l}' = \begin{bmatrix} \hat{i} & \hat{j} & \hat{k} \\ a & b & c \\ a' & b' & c \end{bmatrix}
+```
 
-$$ = \begin{bmatrix} b & c \\ b' & c' \end{bmatrix} \hat{i} - \begin{bmatrix} a & c \\ a' & c' \end{bmatrix} \hat{j} + \begin{bmatrix} a & b \\ a' & b' \end{bmatrix} \hat{k} $$
+```math
+= \begin{bmatrix} b & c \\ b' & c' \end{bmatrix} \hat{i} - \begin{bmatrix} a & c \\ a' & c' \end{bmatrix} \hat{j} + \begin{bmatrix} a & b \\ a' & b' \end{bmatrix} \hat{k}
+```
 
-$$ = \begin{bmatrix} bc' - b'c \\ ca' - c'a \\ ab' - a'b \end{bmatrix} $$
+```math
+= \begin{bmatrix} bc' - b'c \\ ca' - c'a \\ ab' - a'b \end{bmatrix}
+```
 
 위 결과를 inhomogeneous representation으로 바꿔서 얻는 좌표가 바로 교점의 좌표가 된다.
 

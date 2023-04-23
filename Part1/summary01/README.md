@@ -44,7 +44,9 @@ P = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 
 - $P'$ : 평면 위에 projection된 점 $P'(x', y', f)$
 
-$$ P' = \begin{bmatrix} x' \\ y' \\ f \end{bmatrix} $$
+```math
+P' = \begin{bmatrix} x' \\ y' \\ f \end{bmatrix}
+```
 
 similar triangle에 의해 $x'$ 와 $y'$ 는 다음과 같은 수식으로 구할 수 있었다. 2차원 image plane이므로 3차원 좌표는 무시한다.
 
@@ -70,7 +72,9 @@ $$y' = f{{y} \over {z}}$$
 
 위 식을 matrix multiplication 관점으로 다시 표현하면 다음과 같다.
 
-$$ \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} fx \\ fy \\ z \end{bmatrix} = \begin{bmatrix} f & & & 0 \\ & f & & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} fx \\ fy \\ z \end{bmatrix} = \begin{bmatrix} f & & & 0 \\ & f & & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 - 위 수식은 $\mathrm{diag}(f, f, 1)[\mathrm{I}|0]$ 으로 표현할 수 있다.
 
@@ -114,11 +118,15 @@ $$y' = f{{y} \over {z}} + c_{y}$$
 
 이 경우 matrix multiplication 관점으로 표현하면 수식은 다음과 같다.
 
-$$ \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} fx + zc_{x} \\ fy + zc_{y} \\ z \end{bmatrix} = \begin{bmatrix} f & & c_{x} & 0 \\ & f & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} fx + zc_{x} \\ fy + zc_{y} \\ z \end{bmatrix} = \begin{bmatrix} f & & c_{x} & 0 \\ & f & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 - 만약 non-square pixel을 갖는 경우, 수식은 다음과 같이 표현된다.
 
-$$ \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} \alpha x + zc_{x} \\ \beta y + zc_{y} \\ z \end{bmatrix} = \begin{bmatrix} \alpha & & c_{x} & 0 \\ & \beta & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} \alpha x + zc_{x} \\ \beta y + zc_{y} \\ z \end{bmatrix} = \begin{bmatrix} \alpha & & c_{x} & 0 \\ & \beta & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 위 수식을 바탕으로 **camera calibration matrix**(카메라 보정 행렬) $K$ 를 정의하면, 더 간단하게 $K[\mathrm{I}|0]$ 와 같이 수식을 표현할 수 있다.
 
@@ -136,7 +144,9 @@ $$ P' = K[\mathrm{I}|0]P $$
 
 $\theta$ 를 감안할 경우 camera calibration matrix는 다음과 같이 작성된다.
 
-$$ P' = \begin{bmatrix} \alpha & \alpha \cot {\theta} & c_{x} & 0 \\ & {{\beta} \over {\sin \theta}} & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+P' = \begin{bmatrix} \alpha & \alpha \cot {\theta} & c_{x} & 0 \\ & {{\beta} \over {\sin \theta}} & c_{y} & 0 \\ & & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```
 
 - 위 camera calibration matrix $K$ 의 dof(degree of freedom): 5.
 
@@ -146,7 +156,9 @@ $$ P' = \begin{bmatrix} \alpha & \alpha \cot {\theta} & c_{x} & 0 \\ & {{\beta} 
 
 다음과 같이 matrix 원소로 오직 1과 0만 갖는, identity matrix $I$ 와 zero matrix $0$ 가 붙어있는 matrix를 통한 transformation을 **canonical projective transformation**이라고 한다.
 
-$$ P' = \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+P' = \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 - canonical projection matrix $M$ 으로 표현 시 $P' = MP$
 
@@ -178,11 +190,15 @@ $$ P' = P + t = (x + t_{x} , y + t_{y}) $$
 
 위 point $P'$ 를 homogeneous coordinates을 이용한 matrix multiplication 관점에서 표현하면 아래와 같다.
 
-$$ P' \rightarrow \begin{bmatrix} x + t_{x} \\ y + t_{y} \\ 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & t_{x} \\ 0 & 1 & t_{y} \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} I & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow \begin{bmatrix} x + t_{x} \\ y + t_{y} \\ 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & t_{x} \\ 0 & 1 & t_{y} \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} I & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 - 간단하게 translation matrix $T$ 를 정의하면 다음과 같이 쓸 수 있다.
 
-$$P' = T \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}$$
+```math
+P' = T \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 ---
 
@@ -190,11 +206,15 @@ $$P' = T \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}$$
 
 다음은 2D **scaling**을 적용해 보자. 2D point $P=(x,y)$ 에 scaling을 적용해서 $P'=(s_{x}x, s_{y}y)$ 를 얻었다고 하자.
 
-$$ P' \rightarrow \begin{bmatrix} s_{x}x \\ s_{y}y \\ 1 \end{bmatrix} = \begin{bmatrix} s_{x} & 0 & 0 \\ 0 & s_{y} & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} S' & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow \begin{bmatrix} s_{x}x \\ s_{y}y \\ 1 \end{bmatrix} = \begin{bmatrix} s_{x} & 0 & 0 \\ 0 & s_{y} & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} S' & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 - 간단하게 scaling matrix $S$ 를 정의하면 다음과 같이 쓸 수 있다.
 
-$$P' = S \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}$$
+```math
+P' = S \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 ---
 
@@ -210,11 +230,15 @@ $$ y' = \cos {\theta}y + \sin {\theta} x $$
 
 위 $P'$ 은 다음과 같이 matrix multiplication 관점으로 표현할 수 있다.
 
-$$ P' \rightarrow \begin{bmatrix} \cos {\theta} & - \sin {\theta} & 0 \\ \sin {\theta} & \cos {\theta} & 0 \\ 0 & 0 & 1  \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow \begin{bmatrix} \cos {\theta} & - \sin {\theta} & 0 \\ \sin {\theta} & \cos {\theta} & 0 \\ 0 & 0 & 1  \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 - 간단하게 rotation matrix $R$ 를 정의하면 다음과 같이 쓸 수 있다.
 
-$$P' = R\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}$$
+```math
+P' = R\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 > dof는 $\theta$ 1개이다.
 
@@ -224,7 +248,9 @@ $$P' = R\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}$$
 
 위 2D transform을 모두 합치면 다음과 같은 matrix가 된다.
 
-$$ P' \rightarrow \begin{bmatrix} RS & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow \begin{bmatrix} RS & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+```
 
 - 만약 scaling의 $s_{x}, s_{y}$ 값이 동일하다면 **similarity transformation**이다.
 
@@ -248,9 +274,13 @@ $$ P' \rightarrow \begin{bmatrix} RS & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 
 
   - 단, $t_{z}$ 가 늘어서 dof가 3개로 늘어난다.
 
-$$P' = T \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}$$
+```math
+P' = T \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
-$$ P' \rightarrow {\begin{bmatrix} I & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow {\begin{bmatrix} I & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 - 3D **rotation**: x, y, z축마다 rotation matrix를 곱해야 한다.(counter-clockwise 방향)
 
@@ -260,21 +290,31 @@ $$ P' \rightarrow {\begin{bmatrix} I & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \b
 
     ![3D rotation](images/3D_rotation.png)
 
-$$ R_{x}(\alpha) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos {\alpha} & - \sin {\alpha} \\ 0 & \sin {\alpha} & \cos {\alpha} \end{bmatrix} $$
+```math
+R_{x}(\alpha) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos {\alpha} & - \sin {\alpha} \\ 0 & \sin {\alpha} & \cos {\alpha} \end{bmatrix}
+```
 
-$$ R_{y}(\beta) = \begin{bmatrix} \cos {\beta} & 0 & \sin {\beta} \\ 0 & 1 & 0 \\ - \sin {\beta} & 0 & \cos {\beta} \end{bmatrix} $$
+```math
+R_{y}(\beta) = \begin{bmatrix} \cos {\beta} & 0 & \sin {\beta} \\ 0 & 1 & 0 \\ - \sin {\beta} & 0 & \cos {\beta} \end{bmatrix}
+```
 
-$$ R_{z}(\gamma) = \begin{bmatrix} \cos {\gamma} & - \sin {\gamma} & 0 \\ \sin {\gamma} & \cos {\gamma} & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+```math
+R_{z}(\gamma) = \begin{bmatrix} \cos {\gamma} & - \sin {\gamma} & 0 \\ \sin {\gamma} & \cos {\gamma} & 0 \\ 0 & 0 & 1 \end{bmatrix}
+```
 
 $$ R = R_{x}(\alpha)R_{y}(\beta)R_{z}(\gamma) $$ 
 
 point $P$ 에 3D rotation을 적용하면, point $P'$ 로 다음과 같은 좌표를 얻게 된다.
 
-$$ P' \rightarrow {\begin{bmatrix} R & 0 \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow {\begin{bmatrix} R & 0 \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 - **rigid transformation**: 3D translation + 3D rotation
 
-$$ P' \rightarrow {\begin{bmatrix} R & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} $$
+```math
+P' \rightarrow {\begin{bmatrix} R & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+```
 
 ---
 
@@ -282,7 +322,9 @@ $$ P' \rightarrow {\begin{bmatrix} R & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} \b
 
 rigid transformation 식에 camera coordinate frame 변환도 포함해서 고려하면 다음과 같은 식이 된다.
 
-$$ P' \rightarrow K[\mathrm{I}|0] {\begin{bmatrix} R & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} P_{w} = K[R|T]P_{w} $$
+```math
+P' \rightarrow K[\mathrm{I}|0] {\begin{bmatrix} R & T \\ 0 & 1 \end{bmatrix}}_{4 \times 4} P_{w} = K[R|T]P_{w}
+```
 
 > $P$ 가 world coordinate임을 강조하기 위해 $P_{w}$ 로 표현.
 
@@ -298,7 +340,9 @@ matrix의 크기를 보면, $K$ : 3x3, $[R|T]$ : 3x4, $P_{w}$ : 4x1 이다.
 
 $M$ 을 ${[m_{1} , m_{2}, m_{3}]}^{\mathrm{T}}$ 로 더 간단하게 표현할 수 있다.
 
-$$ P' \rightarrow \begin{bmatrix} m_{1} \\ m_{2} \\ m_{3} \end{bmatrix}P_{w} = \begin{bmatrix} m_{1}P_{w} \\ m_{2}P_{w} \\ m_{3}P_{w} \end{bmatrix} $$
+```math
+P' \rightarrow \begin{bmatrix} m_{1} \\ m_{2} \\ m_{3} \end{bmatrix}P_{w} = \begin{bmatrix} m_{1}P_{w} \\ m_{2}P_{w} \\ m_{3}P_{w} \end{bmatrix}
+```
 
 2D point로 나타내면 다음과 같다.
 
