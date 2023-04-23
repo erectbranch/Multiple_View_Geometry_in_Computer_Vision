@@ -78,7 +78,7 @@ $$ p' = {\mathrm{H}}_{\pi}p $$
 
 2. **constructing the epipolar line**
 
-    image B의 $p'$ 를 구했다면, 마찬가지로 image B의 epipole $e'$ 와 cross product를 하면 epipole line $l'$ 를 구할 수 있다.( $l' = e' \times p'$ )
+    image B의 $p'$ 를 구했다면, 마찬가지로 image B의 epipole $e'$ 와 cross product를 하면 epipolar line $l'$ 를 구할 수 있다.( $l' = e' \times p'$ )
 
 $$ l' = {[e']}_{\times}{\mathrm{H}}_{\pi}p = {\mathrm{F}}p $$
 
@@ -122,7 +122,7 @@ fundamental matrix의 성질들을 알아보자.
 
 1. **point correspondence**(점 대응)
 
-    image B에서 point $p'$ 와 epipole line $l'$ 을 내적하면, $p'$ 가 $l'$ 위에 위치하기 때문에 결과값은 0이 된다. ( ${p'}^{\mathrm{T}}l' = 0$ ) 따라서 다음 식을 만족한다.
+    image B에서 point $p'$ 와 epipolar line $l'$ 을 내적하면, $p'$ 가 $l'$ 위에 위치하기 때문에 결과값은 0이 된다. ( ${p'}^{\mathrm{T}}l' = 0$ ) 따라서 다음 식을 만족한다.
 
 $$ {p'}^{\mathrm{T}}{\mathrm{F}}p = 0 $$
 
@@ -132,11 +132,11 @@ $$ {p'}^{\mathrm{T}}{\mathrm{F}}p = 0 $$
 
     $3 \times 3$ homogeneous matrix는 8개의 independent ratio를 가는데, $\mathrm{F}$ 는 $\mathrm{det}$ $\mathrm{F} = 0$ 을 만족해야 하므로 -1을 한 dof 7이 된다.
 
-3. **epipole lines**
+3. **epipolar lines**
 
-   - $l' = \mathrm{F}p$ : $p$ 에 correspond(대응)하는 epipole line
+   - $l' = \mathrm{F}p$ : $p$ 에 correspond(대응)하는 epipolar line
 
-   - $l = \mathrm{F}p'$ : $p'$ 에 correspond(대응)하는 epipole line
+   - $l = \mathrm{F}p'$ : $p'$ 에 correspond(대응)하는 epipolar line
 
 4. **epipoles**
 

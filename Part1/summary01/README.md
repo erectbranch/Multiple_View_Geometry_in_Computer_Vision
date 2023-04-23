@@ -38,7 +38,9 @@ pinhole camera model을 다시 한 번 살펴보자. 기본적으로 pinhole mod
 
 - $P$ : 공간상의 점 $P(x, y, z)$
 
-$$ P = \begin{bmatrix} x \\ y \\ z \end{bmatrix} $$
+```math
+P = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+```
 
 - $P'$ : 평면 위에 projection된 점 $P'(x', y', f)$
 
