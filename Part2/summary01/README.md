@@ -130,7 +130,7 @@ $$ {p'}^{\mathrm{T}}{\mathrm{F}}p = 0 $$
 
 2. $\mathrm{F}$ 는 **rank 2 homogeneous matrix**이며 **dof 7**을 갖는다.
 
-    $3 \times 3$ homogeneous matrix는 8개의 independent ratio를 가는데, $\mathrm{F}$ 는 $\mathrm{det}$ $\mathrm{F} = 0$ 을 만족해야 하므로 -1을 한 dof 7이 된다.
+    $3 \times 3$ homogeneous matrix는 8개의 independent ratio를 갖는데, $\mathrm{F}$ 는 $\mathrm{det}$ $\mathrm{F} = 0$ 을 만족해야 하므로 -1을 한 dof 7이 된다.
 
 3. **epipolar lines**
 
