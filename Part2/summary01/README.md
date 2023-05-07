@@ -2,6 +2,8 @@
 
 **epipolar geometry**(등극 기하학)은 '두 view(시점) 사이의 projective geometry'이다. 
 
+![epipolar geometry](images/elements_of_epipolar.png)
+
 > 간단히 말하자면 동일한 사물이나 장면을 서로 다른 두 시점에서 획득했을 때, image A, B가 서로 이루는 기하학적 관계를 다루는 것이다.
 
 - scene structure(장면 구조)와 무관하다.
@@ -18,9 +20,11 @@
 
 ![point correspondence geometry](images/point_correspondence_geometry.png)
 
-- **epipole**: 두 camera centre(카메라 중심)을 이으면서 생기는 직선이, 각 image plane에서 만나는 점이 바로 **epipole**(등극점) $e$ , $e'$ 이다.
+- **epipole**: 두 camera centre(카메라 중심)을 이으면서 생기는 직선 **baseline**이, 각 image plane에서 만나는 점이 바로 **epipole**(등극점) $e$ , $e'$ 이다.
 
-- **epipolar line**: $p$ 와 $e$ 를 이어서 생기는 직선 $l$ , $p'$ 와 $e'$ 를 이어서 생기는 직선 $l'$ 이 바로 **epipolar line**(등극선)이다.(epiline으로도 부른다.)
+  > epipole은 image 안팎 어디서든 존재할 수 있으며, camera center와 무한히 멀리 떨어져 있을 수도 있다.
+
+- **epipolar line**: $p$ 와 epipole $e$ 를 이어서 생기는 직선 $l$ , $p'$ 와 epipole $e'$ 를 이어서 생기는 직선 $l'$ 이 바로 **epipolar line**(등극선)이다.(epiline으로도 부른다.)
 
 그림을 잘 보면 두 카메라 중심( $C$ , $C'$ 로 지칭. )과 $P$ 를 이으면 삼각형처럼 보이는 평면이 있다. 이를 **epipolar plane**(등극면)이라고 한다.
 
