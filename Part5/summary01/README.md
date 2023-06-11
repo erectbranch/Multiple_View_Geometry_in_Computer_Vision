@@ -1,4 +1,4 @@
-# 23 Light
+# 23 Light (Part I)
 
 이미지에서 pixel이 갖는 brightness는 어떻게 정해질까?
 
@@ -49,6 +49,8 @@
 ---
 
 ### 23.1.2 radiance, irradiance
+
+> [intensity, radiance, irradiance 차이](https://blog.naver.com/PostView.nhn?blogId=specialist0&logNo=221083864863): intensity(단위 solid angle), radiance(단위 면적 + 단위 solid angle), irradiance(단위 면적)
 
 radiance, irradiance를 구면좌표계(spherical coordinate)에서 표현해 보자.
 
@@ -248,8 +250,18 @@ light source(광원)는 크게 세 가지 종류로 분류할 수 있다.
 
   ![wave length](images/wavelength.png)
 
-참고로 물체에서 반사되는 색상은 '빛의 wavelength'(**illumination**)와 '물체의 표면이 갖는 반사 특성'(**reflectance**)의 interection으로 결정된다.
+---
+
+### 23.4.1 color
+
+물체에서 반사되는 색상은 **illumination**과 **reflectance**의 interection으로 결정된다.
+
+- **illumination**: luminous flux의 이동(transport)을 의미한다.(light sources(emitters) → surfaces(reflectors))
+
+- **reflectance**: radiation이 surface에서 반사되어 나오는 비율을 의미한다. 
 
 ![interection of light and surface](images/reflect_interection.png)
+
+![primary colors](images/primary_colors.png)
 
 ---
