@@ -142,9 +142,11 @@ $$ I_{e} = k_{s}(V \cdot R)^{n_{s}}I_{i} $$
 
 - ${\theta}_{e}, {\phi}_{e}$ : outgoing ray의 방향
 
-BRDF은 입사각과 반사각을 이용한 수식으로 표현된다.
+BRDF는 입사각과 반사각을 이용한 수식으로 표현된다.
 
-$$ \rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{L({\theta}_{i}, {\phi}_{i})} \over {E({\theta}_{e}, {\phi}_{e})}} $$
+```math
+\rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{L({\theta}_{i}, {\phi}_{i})} \over {E({\theta}_{e}, {\phi}_{e})}}
+```
 
 > 비율이므로 단위는 없다. 
 
