@@ -162,7 +162,9 @@ $$ I_{e} = k_{d} (\mathrm{N} \cdot \mathrm{L}) I_{i} $$
 
 여기서 BRDF은 다음과 같다.
 
-$$ \rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = k_{d}\cos{\theta}_{i} $$
+```math
+\rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = k_{d}\cos{\theta}_{i}
+```
 
 ---
 
