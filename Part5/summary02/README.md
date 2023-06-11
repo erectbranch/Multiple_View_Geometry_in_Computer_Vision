@@ -138,10 +138,6 @@ $$ I_{e} = k_{s}(V \cdot R)^{n_{s}}I_{i} $$
 
 > 그림에서 주목할 부분은 illumination direction, surface normal, viewing direction이다.
 
-- ${\theta}_{i}, {\phi}_{i}$ : incoming ray의 방향
-
-- ${\theta}_{e}, {\phi}_{e}$ : outgoing ray의 방향
-
 BRDF는 입사각과 반사각을 이용한 수식으로 표현된다.
 
 ```math
@@ -162,7 +158,7 @@ Lambert's Cosine Law에 따라 반사되는 빛의 radiance는 다음과 같다.
 
 $$ I_{e} = k_{d} (\mathrm{N} \cdot \mathrm{L}) I_{i} $$
 
-여기서 BRDF은 다음과 같다.
+이때 BRDF는 다음과 같이 표현한다.
 
 ```math
 \rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = k_{d}\cos{\theta}_{i}
@@ -200,7 +196,9 @@ Phong illumination model은 다음 3가지 component로 구성된다.
 
 ![Phong illumination model](images/Phong_illumination_model.png)
 
-$$ I_{e} = k_{a}I_{a} + I_{i}[k_{d}(\mathrm{N} \cdot \mathrm{L})_{+} + k_{s}(\mathrm{V} \cdot \mathrm{R})^{n_{s}}_{+}] $$
+```math
+I_{e} = k_{a}I_{a} + I_{i}[k_{d}(\mathrm{N} \cdot \mathrm{L})_{+} + k_{s}(\mathrm{V} \cdot \mathrm{R})^{n_{s}}_{+}]
+```
 
 - $\mathrm{L}, \mathrm{N}, \mathrm{V}$ : unit vector
 
