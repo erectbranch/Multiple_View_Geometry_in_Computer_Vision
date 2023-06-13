@@ -50,9 +50,9 @@ photometric stereo는 몇 가지 가정을 한다.
 
 - $\mathrm{N}$ : surface normal(**unknown**)
 
-  - $\mathrm{N} = (n_x, n_y, n_z) = \mathrm{N}({\sigma}_{n}, {\tau}_{n})$
+  - $\mathrm{N}$의 크기는 1이다. $\mathrm{N} \cdot \mathrm{N} = 1$ 
 
-  - $\mathrm{N}$의 크기는 1이다. $\mathrm{N} \cdot \mathrm{N} = 1$
+$$\mathrm{N} = (n_x, n_y, n_z) = \mathrm{N}({\sigma}_{n}, {\tau}_{n})$$
 
 - Surface Reflectance(albedo)(known)
 
@@ -114,7 +114,9 @@ $$ S_{i} = \{(x, y, z) \in \mathbb{R^{3}} | x^2 + y^2 + z^2 = 1 \} $$
 
 곡면은 원점에서 단위 길이의 거리에 있는 점 $\mathrm{p}$ 의 집합으로 볼 수 있다.
 
-$$ ||\mathrm{p}|| = \sqrt{{p}^{2}_{1} + {p}^{2}_{2} + {p}^{2}_{3}} = 1$$
+```math
+||\mathrm{p}|| = \sqrt{{p}^{2}_{1} + {p}^{2}_{2} + {p}^{2}_{3}} = 1
+```
 
 여기서 xy 평면 위에 위치한 곡면의 각 점 $(q_1, q_2, q_3)$ 을 xy평면으로 projection하면, $D : x^2 + y^2 = 1, z = 0$ 사이의 일대일 대응 함수를 얻을 수 있다.
 
@@ -178,7 +180,9 @@ $$ I = \cos {\theta}_{i} = \mathrm{n} \cdot \mathrm{s} $$
 
 실제 좌표를 대입하여 reflectance map을 구할 수 있다.
 
-$$ I = \mathrm{n} \cdot \mathrm{s} = {{pp_s + qq_s + 1} \over {{\sqrt{{p}^2 + {q}^2 + 1}}{\sqrt{{p}^{2}_{s} + {q}^{2}_{s} + 1}}}} = R(p, q) $$
+```math
+I = \mathrm{n} \cdot \mathrm{s} = {{pp_s + qq_s + 1} \over {{\sqrt{{p}^2 + {q}^2 + 1}}{\sqrt{{p}^{2}_{s} + {q}^{2}_{s} + 1}}}} = R(p, q)
+```
 
 ---
 
