@@ -86,23 +86,25 @@ $$ J = {{d \Phi} \over {d \omega}} $$
 
 ### 23.1.4 surface irradiance, surface radiance
 
-이제 **surface**와 관련된 개념을 살펴보자.
+이제 **surface**와 관련된 개념을 살펴보자. **surface irradiance**는 단위 surface area에서의 light flux incident를 의미한다.
 
 ![light flux](images/surface_radiance_irradiance.png)
-
-**surface irradiance**는 단위 surface area에서의 light flux incident를 의미한다.
 
 $$ E = {{d \Phi} \over {dA}} $$
 
 - 단위: Watt/m^-2
 
-- radiant intensity를 대입하면 식은 다음과 같이 바뀐다.( $r$ = distance from light source to surface )
+- radiant intensity를 대입하면 식은 다음과 같이 바뀐다.( $J$ = radient intensity, $r$ = distance from light source to surface )
 
 $$ E = {{J d \omega} \over {dA}} = {{J{dA \cos \theta} \over {r^2}} \over {dA}} = {{J \cos \theta} \over {r^2}} $$ 
 
-![surface radiance](images/surface_radiance.png)
+- **Lambert's Cosine Law**에 따르면 surface direction에 따른 irradiance는 다음과 같다.
+
+  ![Lambert's cosine law](images/Lambert's_cosine_law.jpg)
 
 **surface radiance**는 단위 **foreshortend area**, 단위 solid angle에서 특정 방향으로 방출되는 radiant flux를 의미한다.
+
+![surface radiance](images/surface_radiance.png)
 
 > camera sensor의 면적과 surface의 면적은 모두 surface radiance에 영향을 미친다.
 
