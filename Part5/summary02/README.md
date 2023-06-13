@@ -76,17 +76,19 @@ light source(광원)에서 나온 **photon**(광자)가 일으킬 수 있는 현
 
 - $L$ : Scene Radiance
 
-  - source에서 $({\theta}_{i}, {\phi}_{i})$ 으로 들어오는 irradiance
+```math
+({\theta}_{i}, {\phi}_{i})
+```
 
 - $E$ : Image Irradiance
 
-  - surface에서 $({\theta}_{e}, {\phi}_{e})$ 방향으로의 radiance
+```math
+({\theta}_{e}, {\phi}_{e})
+```
 
 ![BRDF](images/BRDF_2.png)
 
 > 그림에서 주목할 부분은 illumination direction, surface normal, viewing direction이다.
-
-BRDF는 입사각과 반사각을 이용한 수식으로 표현된다.
 
 ```math
 \rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{L({\theta}_{i}, {\phi}_{i})} \over {E({\theta}_{e}, {\phi}_{e})}}
@@ -127,12 +129,10 @@ f({\theta}_{i}, {\theta}_{e}, {\phi}_{i} - {\phi}_{e})
 따라서 모든 지점에서 BRDF는 하나의 상수로 나타낼 수 있다.
 
 ```math
-f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{i}) = {{{\rho}_{d}} \over {\pi}}
+f({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{{\rho}_{d}} \over {\pi}}
 ```
 
-- ${\rho}_{d}$ : albedo( $0 \le {\rho}_{d} \le 1$ )
-
-  - albedo는 완전히 검은색에서 0, 완전한 흰색에서 1 값이다.
+- albedo ρ는 완전히 검은색에서 0, 완전한 흰색에서 1 값이다.
 
 여기서 radiance(L)와 irradiance(E)의 관게를 잠시 살펴보자. BRDF의 식은 L/E 비율이므로, L에 관한 식으로 바꿀 수 있다.
 
@@ -202,7 +202,7 @@ Lambert's Cosine Law에 따라 반사되는 빛의 radiance는 다음과 같다.
 
 $$ I_{e} = k_{d} (\mathrm{N} \cdot \mathrm{L}) I_{i} $$
 
-이때 BRDF는 다음과 같이 표현한다.
+BRDF는 다음과 같이 도출할 수 있다.
 
 ```math
 \rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = k_{d}\cos{\theta}_{i}

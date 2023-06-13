@@ -92,13 +92,13 @@ A와 B의 표면적은 달라도 light source를 중심으로 그린 원에서�
 
 **light field**란 모든 지점(every point)과 모든 방향(every direction)에 도달하는 radiation을 정의한 개념이다. 이러한 light field는 **plenoptic function**을 통해 표현한다.
 
-$$R(X, Y, Z, {\theta}, {\phi}, {\lambda}, t)$$
+$$P(X, Y, Z, {\theta}, {\phi}, {\lambda}, t)$$
 
 - observer의 위치
 
   - $X, Y, Z$
 
-- observer가 바라보는 방향
+- ray direction
 
   - $\theta$ : 방위각(azimuth angle)
 
