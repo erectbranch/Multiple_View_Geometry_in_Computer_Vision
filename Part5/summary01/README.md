@@ -66,7 +66,7 @@ $$ d \omega = {{dA'} \over {r^2}} = {{dA \cos \theta} \over {r^2}} $$
 
 ---
 
-### 23.1.3 light flux, radient intensity
+### 23.1.3 light flux, radiant intensity
 
 ![light flux](images/light_flux.png)
 
@@ -88,13 +88,15 @@ $$ J = {{d \Phi} \over {d \omega}} $$
 
 이제 **surface**와 관련된 개념을 살펴보자. **surface irradiance**는 단위 surface area에서의 light flux incident를 의미한다.
 
+> **surface irradiance**는 종종 **intensity** $I$ 로 부르거나 표기한다. radiant intensity $J$ 와 혼동을 주의해야 한다.
+
 ![light flux](images/surface_radiance_irradiance.png)
 
 $$ E = {{d \Phi} \over {dA}} $$
 
 - 단위: Watt/m^-2
 
-- radiant intensity를 대입하면 식은 다음과 같이 바뀐다.( $J$ = radient intensity, $r$ = distance from light source to surface )
+- radiant intensity를 대입하면 식은 다음과 같이 바뀐다.( $J$ = radiant intensity, $r$ = distance from light source to surface )
 
 $$ E = {{J d \omega} \over {dA}} = {{J{dA \cos \theta} \over {r^2}} \over {dA}} = {{J \cos \theta} \over {r^2}} $$ 
 
