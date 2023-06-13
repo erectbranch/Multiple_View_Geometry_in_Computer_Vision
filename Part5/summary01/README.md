@@ -1,5 +1,7 @@
 # 23 Light (Part I)
 
+> [First Principle of Computer Vision](https://fpcv.cs.columbia.edu/Monographs)
+
 이미지에서 pixel이 갖는 brightness는 어떻게 정해질까?
 
 ![pixel brightness example](images/pixel_brightness.png)
@@ -23,6 +25,8 @@
 ---
 
 ## 23.1 Radiometry
+
+> [Radiometric Concepts | Radiometry and Reflectance](https://youtu.be/tflz0loWhIY)
 
 광원(source)의 <U>빛</U>과 물체의 <U>표면</U>(receiver)의 <U>interaction으로 얼마나 표면이 '밝게'(bright) 빛날지</U>를 알아내는 것이 바로 **Radiometry**이다.
 
@@ -48,31 +52,69 @@
 
 ---
 
-### 23.1.2 radiance, irradiance
+### 23.1.2 solid angle
 
-> [intensity, radiance, irradiance 차이](https://blog.naver.com/PostView.nhn?blogId=specialist0&logNo=221083864863): intensity(단위 solid angle), radiance(단위 면적 + 단위 solid angle), irradiance(단위 면적)
-
-radiance, irradiance를 구면좌표계(spherical coordinate)에서 표현해 보자.
+우선 3차원에서는 **solid angle**(입체각) 개념을 사용한다. 단위는 steradian(square radian, 스테라디안, **sr**)으로, 면적( $A$ )을 거리 제곱( $r^2$ )으로 나눈 값이다.
 
 ![3D direction](images/3D_direction.png)
 
-우선 3차원에서는 **solid angle**(입체각) 개념을 사용한다. 단위는 steradian(square radian, 스테라디안, **sr**)으로, 면적의 크기( $A$ )를 거리 제곱( $r^2$ )으로 나눈 값이다.
+> 반구에서의 solid angle은 $2\pi$ sr, 전체 구면에서의 solid angle은 $4\pi$ sr이다.
 
-![solid angel](images/solid_angle.jpg)
+![solid angel](images/solid_angle.png)
 
-- steradian은 $A / r^2$ 과 같다.
-
-radiance는 단위 면적에서 단위 solid angle으로 향하는 특정 방향의 radiant flux를 의미한다.
-
-$$ L(P, \theta, \phi) $$
-
-irradiance는 단위 면적에서 모든 방향의 radiant flux를 의미한다.
-
-$$ L(P, \theta, \phi)\cos \theta d\omega $$
+$$ d \omega = {{dA'} \over {r^2}} = {{dA \cos \theta} \over {r^2}} $$
 
 ---
 
-### 23.1.3 look the same
+### 23.1.3 light flux, radient intensity
+
+![light flux](images/light_flux.png)
+
+**light flux**란 solid angle에서 방출되는 power를 의미한다. $d\omega$ 에서 방출되는 power는 다음과 같다.
+
+$$ d \Phi $$
+
+- 단위: Watt
+
+**radiant intensity**란 **unit** solid angle에서 방출되는 power를 의미한다.
+
+$$ J = {{d \Phi} \over {d \omega}} $$
+
+- 단위: Watt/steradian
+
+---
+
+### 23.1.4 surface irradiance, surface radiance
+
+이제 **surface**와 관련된 개념을 살펴보자.
+
+![light flux](images/surface_radiance_irradiance.png)
+
+**surface irradiance**는 단위 surface area에서의 light flux incident를 의미한다.
+
+$$ E = {{d \Phi} \over {dA}} $$
+
+- 단위: Watt/m^-2
+
+- radiant intensity를 대입하면 식은 다음과 같이 바뀐다.( $r$ = distance from light source to surface )
+
+$$ E = {{J d \omega} \over {dA}} = {{J{dA \cos \theta} \over {r^2}} \over {dA}} = {{J \cos \theta} \over {r^2}} $$ 
+
+![surface radiance](images/surface_radiance.png)
+
+**surface radiance**는 단위 **foreshortend area**, 단위 solid angle에서 특정 방향으로 방출되는 radiant flux를 의미한다.
+
+> camera sensor의 면적과 surface의 면적은 모두 surface radiance에 영향을 미친다.
+
+$$ L = {{d^2 \Phi} \over {(dA \cos {\theta}_{r})d \omega}} $$
+
+- 단위: Watt m^-2 sr^-1
+
+> direction에 따라 radiance가 바뀌는 점에 주목하자. 또한 L은 surface의 reflectance에도 영향을 받는다.
+
+---
+
+### 23.1.5 look the same
 
 ![look the same](images/look_the_same.png)
 
@@ -94,7 +136,7 @@ A와 B의 표면적은 달라도 light source를 중심으로 그린 원에서�
 
 $$P(X, Y, Z, {\theta}, {\phi}, {\lambda}, t)$$
 
-- observer의 위치
+- observer의 위치(viewpoint)
 
   - $X, Y, Z$
 
