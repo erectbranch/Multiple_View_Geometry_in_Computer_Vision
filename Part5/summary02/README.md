@@ -34,9 +34,17 @@ light source(광원)에서 나온 **photon**(광자)가 일으킬 수 있는 현
 
 ---
 
-## 23.6 basic models of reflection
+## 23.6 reflection models
 
 > [reflection of light 정리](https://gofo-coding.tistory.com/entry/Lighting)
+
+> [Reflectance Models | Radiometry and Reflectance](https://youtu.be/HPNW0we-ft0)
+
+![reflection ex](images/reflection_ex.png)
+
+- surface reflection: specular reflection
+
+- body reflection: diffuse reflection
 
 대부분 빛은 물체의 표면(surface)에서 모든 방향으로 반사된다. 그렇다면 반사되는 빛의 양(**intensity**)은 어떻게 나타낼까? 먼저 세 가지 가정을 통한 단순화가 필요하다.
 
@@ -58,7 +66,87 @@ light source(광원)에서 나온 **photon**(광자)가 일으킬 수 있는 현
 
 ---
 
-### 23.6.1 diffuse reflection
+## 23.7 Bidirectional Reflection Distribution Function(BRDF)
+
+> [BRDF: Bidirectional Reflectance Distribution Function](https://youtu.be/R9iZzaXUaK4)
+
+**BRDF**(Bidirectional Reflection Distribution Function)은 빛이 표면에서 반사되었을 때, **특정 방향에서 본 표면이 얼마나 bright한지**를 정의한 4차원 함수이다.(general model of local reflection)
+
+![BRDF](images/BRDF_1.png)
+
+- $L$ : Scene Radiance
+
+  - source에서 $({\theta}_{i}, {\phi}_{i})$ 으로 들어오는 irradiance
+
+- $E$ : Image Irradiance
+
+  - surface에서 $({\theta}_{e}, {\phi}_{e})$ 방향으로의 radiance
+
+![BRDF](images/BRDF_2.png)
+
+> 그림에서 주목할 부분은 illumination direction, surface normal, viewing direction이다.
+
+BRDF는 입사각과 반사각을 이용한 수식으로 표현된다.
+
+```math
+\rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{L({\theta}_{i}, {\phi}_{i})} \over {E({\theta}_{e}, {\phi}_{e})}}
+```
+
+> i: incidence, r: reflectance 기호를 사용하는 경우도 있다.
+
+BRDF의 대표적인 특징은 다음과 같다.
+
+- 빛 에너지를 `-`만큼 반사할 수는 없으므로 0보다 큰 값이 되어야 하며, 비율이므로 단위는 없다. 
+
+- **Helmholtz Reciprocity**에 따라, camera와 light source의 위치를 서로 바꿨을 때 BRDF는 동일한 값을 갖는다.
+
+$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = f({\theta}_{e}, {\phi}_{e}, {\theta}_{i}, {\phi}_{i}) $$
+
+- 일반적으로 4-D function이나, **Isotropic Surfaces**일 경우 3-D function으로 표현할 수 있다.
+
+  - Isotropic Surfaces: 모든 방향에서 동일한 BRDF를 갖는 표면.
+
+$$ f({\theta}_{i}, {\theta}_{e}, {\phi}_{i} - {\phi}_{e}) $$
+
+---
+
+## 23.8 basic models of reflection
+
+---
+
+### 23.8.1 Lambertian Model
+
+![Lambertian model](images/Lambertian_model.png)
+
+**Lambertian model**에서는 surface가 모든 direction에서 동일한 brightness를 갖는다.
+
+따라서 모든 지점에서 BRDF는 하나의 상수로 나타낼 수 있다.
+
+$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{i}) = {{{\rho}_{d}} \over {\pi}} $$
+
+- ${\rho}_{d}$ : albedo( $0 \le {\rho}_{d} \le 1$ )
+
+  - albedo는 완전히 검은색에서 0, 완전한 흰색에서 1 값이다.
+
+여기서 radiance(L)와 irradiance(E)의 관게를 잠시 살펴보자. BRDF의 식은 L/E 비율이므로, L에 관한 식으로 바꿀 수 있다.
+
+$$ L = {{{\rho}_{d}} \over {\pi}}E $$
+
+또한 irradiance는 다음과 같이 계산할 수 있었다.
+
+$$ E = {{{J}\cos{\theta}_{i}} \over {r^2}} = {{J} \over {r^2}}(\bar{n} \cdot \bar{s}) $$
+
+따라서 L에 관한 식에 대입하여 정리하면 다음과 같다.
+
+$$ L = {{{\rho}_{d}} \over {\pi}}{{J} \over {r^2}}(\bar{n} \cdot \bar{s}) $$
+
+만약 light source가 수직으로 들어오면 $\bar{n} = \bar{s}$ 가 될 것이다. 이때의 $L$ 이 최댓값이 된다.
+
+![Lambertian viewing direction](images/Lambertian_viewing_direction.png)
+
+---
+
+### 23.8.2 diffuse reflection
 
 **diffuse reflection**(난반사) model을 살펴보자.
 
@@ -98,57 +186,7 @@ $$ I(x) = {\rho}(x) (L \cdot \mathrm{N}(x)) $$
 
 ---
 
-### 23.6.2 specular reflection
-
-perfect mirror model에서 일어나는 ideal **specular reflection**(정반사)의 경우, 다음과 같이 반사가 일어난다.
-
-![specular reflection](images/specular_reflection.png)
-
-- V = R: intensity $I_{e} = I_{i}$
-
-  > e: emitting(나오는 빛), i: incomming(들어오는 빛)
-
-- V $\neq$ R: 0 
-
-near-perfect mirror(common model)일 경우, intensity는 R에서의 각도를 기준으로 큰 값을 갖게 된다.(highlight around R)
-
-![near-perfect model](images/near-perfect_mirrors.png)
-
-이때의 intensity를 수식으로 나타내면 다음과 같다.
-
-$$ I_{e} = k_{s}(V \cdot R)^{n_{s}}I_{i} $$
-
-- $k_{s}$ : specular coefficient (0~1 사이 값)
-
----
-
-## 23.6.3 Lambertian + specular model
-
-대부분의 경우에서 Lambertian과 specular component를 별개로 분리할 수 있다.
-
-![lambertian and specular model](images/lambertian_and_specular_component.png)
-
----
-
-## 23.7 Bidirectional Reflection Distribution Function(BRDF)
-
-**BRDF**(Bidirectional Reflection Distribution Function)은 빛이 표면에서 반사되었을 때, **특정 방향에서 본 표면이 얼마나 bright한지**를 정의한 4차원 함수이다.(general model of local reflection)
-
-![BRDF](images/BRDF.png)
-
-> 그림에서 주목할 부분은 illumination direction, surface normal, viewing direction이다.
-
-BRDF는 입사각과 반사각을 이용한 수식으로 표현된다.
-
-```math
-\rho ({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = {{L({\theta}_{i}, {\phi}_{i})} \over {E({\theta}_{e}, {\phi}_{e})}}
-```
-
-> 비율이므로 단위는 없다. 
-
----
-
-### 23.7.1 BRDF for diffuse reflection
+#### 23.8.2.1 BRDF for diffuse reflection
 
 **Lambertian surface**에서의 BRDF를 살펴보자. 
 
@@ -165,8 +203,49 @@ $$ I_{e} = k_{d} (\mathrm{N} \cdot \mathrm{L}) I_{i} $$
 ```
 
 ---
+### 23.8.3 specular reflection
 
-## 23.8 parameterized reflectance model
+perfect mirror model에서 일어나는 ideal **specular reflection**(정반사)의 경우, 다음과 같이 반사가 일어난다.
+
+![specular reflection](images/specular_reflection.png)
+
+- V = R: intensity $I_{e} = I_{i}$
+
+  > e: emitting(나오는 빛), i: incomming(들어오는 빛)
+
+- V $\neq$ R: 0 
+
+perfect mirror에서의 BRDF는 두 delta function의 곱으로 표현할 수 있다.
+
+![perfect mirrors](images/perfect_mirrors.png)
+
+$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{r}) = {{\delta ({\theta}_{i} - {\theta}_{r}) \delta ({\phi}_{i} + \pi - {\phi}_{r})} \over {\cos{{\theta}_{i}} \sin{{\theta}_{i}}}} $$
+
+- ${\delta ({\theta}_{i} - {\theta}_{r})}$ : 두 각은 반드시 같아야 함을 의미한다.
+
+- $\delta ({\phi}_{i} + \pi - {\phi}_{r})$ : 방위각은 서로 반대여야 함을 의미한다.
+
+near-perfect mirror(common model)일 경우, intensity는 R에서의 각도를 기준으로 큰 값을 갖게 된다.(highlight around R)
+
+![near-perfect model](images/near-perfect_mirrors.png)
+
+이때의 intensity를 수식으로 나타내면 다음과 같다.
+
+$$ I_{e} = k_{s}(V \cdot R)^{n_{s}}I_{i} $$
+
+- $k_{s}$ : specular coefficient (0~1 사이 값)
+
+---
+
+### 23.8.4 Lambertian + specular model
+
+대부분의 경우에서 Lambertian과 specular component를 별개로 분리할 수 있다.
+
+![lambertian and specular model](images/lambertian_and_specular_component.png)
+
+---
+
+### 23.8.5 parameterized reflectance model
 
 물체의 반사를 나타내는 유명한 model로 다음과 같은 예시가 있다.
 
@@ -182,7 +261,7 @@ $$ I_{e} = k_{d} (\mathrm{N} \cdot \mathrm{L}) I_{i} $$
 
 ---
 
-### 23.8.1 Phong illumination model
+#### 23.8.5.1 Phong illumination model
 
 Phong illumination model은 다음 3가지 component로 구성된다.
 
