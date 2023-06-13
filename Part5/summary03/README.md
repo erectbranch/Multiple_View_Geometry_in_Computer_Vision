@@ -52,7 +52,9 @@ photometric stereo는 몇 가지 가정을 한다.
 
   - $\mathrm{N}$의 크기는 1이다. $\mathrm{N} \cdot \mathrm{N} = 1$ 
 
-$$\mathrm{N} = (n_x, n_y, n_z) = \mathrm{N}({\sigma}_{n}, {\tau}_{n})$$
+```math
+\mathrm{N} = (n_x, n_y, n_z) = \mathrm{N}({\sigma}_{n}, {\tau}_{n})
+```
 
 - Surface Reflectance(albedo)(known)
 
