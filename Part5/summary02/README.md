@@ -233,11 +233,15 @@ delta function의 의미는 각각 다음과 같다.
 
 - 두 각은 반드시 같아야 함을 의미한다.
 
-$$ \delta ({\theta}_{i} - {\theta}_{r}) $$
+```math
+\delta ({\theta}_{i} - {\theta}_{r})
+```
 
 - 방위각은 서로 반대여야 함을 의미한다.
 
-$$ \delta ({\phi}_{i} + \pi - {\phi}_{r}) $$
+```math
+\delta ({\phi}_{i} + \pi - {\phi}_{r})
+```
 
 near-perfect mirror(common model)일 경우, intensity는 R에서의 각도를 기준으로 큰 값을 갖게 된다.(highlight around R)
 
