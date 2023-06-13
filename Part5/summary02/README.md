@@ -100,13 +100,17 @@ BRDF의 대표적인 특징은 다음과 같다.
 
 - **Helmholtz Reciprocity**에 따라, camera와 light source의 위치를 서로 바꿨을 때 BRDF는 동일한 값을 갖는다.
 
-$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = f({\theta}_{e}, {\phi}_{e}, {\theta}_{i}, {\phi}_{i}) $$
+```math
+f({\theta}_{i}, {\phi}_{i}, {\theta}_{e}, {\phi}_{e}) = f({\theta}_{e}, {\phi}_{e}, {\theta}_{i}, {\phi}_{i})
+```
 
 - 일반적으로 4-D function이나, **Isotropic Surfaces**일 경우 3-D function으로 표현할 수 있다.
 
   - Isotropic Surfaces: 모든 방향에서 동일한 BRDF를 갖는 표면.
 
-$$ f({\theta}_{i}, {\theta}_{e}, {\phi}_{i} - {\phi}_{e}) $$
+```math
+f({\theta}_{i}, {\theta}_{e}, {\phi}_{i} - {\phi}_{e})
+```
 
 ---
 
@@ -122,7 +126,9 @@ $$ f({\theta}_{i}, {\theta}_{e}, {\phi}_{i} - {\phi}_{e}) $$
 
 따라서 모든 지점에서 BRDF는 하나의 상수로 나타낼 수 있다.
 
-$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{i}) = {{{\rho}_{d}} \over {\pi}} $$
+```math
+f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{i}) = {{{\rho}_{d}} \over {\pi}}
+```
 
 - ${\rho}_{d}$ : albedo( $0 \le {\rho}_{d} \le 1$ )
 
@@ -215,15 +221,23 @@ perfect mirror model에서 일어나는 ideal **specular reflection**(정반사)
 
 - V $\neq$ R: 0 
 
-perfect mirror에서의 BRDF는 두 delta function의 곱으로 표현할 수 있다.
+perfect mirror에서의 BRDF는 두 delta function(0일 때만 1의 값을 갖는 함수)의 곱으로 표현할 수 있다.
 
 ![perfect mirrors](images/perfect_mirrors.png)
 
-$$ f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{r}) = {{\delta ({\theta}_{i} - {\theta}_{r}) \delta ({\phi}_{i} + \pi - {\phi}_{r})} \over {\cos{{\theta}_{i}} \sin{{\theta}_{i}}}} $$
+```math
+f({\theta}_{i}, {\phi}_{i}, {\theta}_{r}, {\phi}_{r}) = {{\delta ({\theta}_{i} - {\theta}_{r}) \delta ({\phi}_{i} + \pi - {\phi}_{r})} \over {\cos{{\theta}_{i}} \sin{{\theta}_{i}}}}
+```
 
-- ${\delta ({\theta}_{i} - {\theta}_{r})}$ : 두 각은 반드시 같아야 함을 의미한다.
+delta function의 의미는 각각 다음과 같다.
 
-- $\delta ({\phi}_{i} + \pi - {\phi}_{r})$ : 방위각은 서로 반대여야 함을 의미한다.
+- 두 각은 반드시 같아야 함을 의미한다.
+
+$$ \delta ({\theta}_{i} - {\theta}_{r}) $$
+
+- 방위각은 서로 반대여야 함을 의미한다.
+
+$$ \delta ({\phi}_{i} + \pi - {\phi}_{r}) $$
 
 near-perfect mirror(common model)일 경우, intensity는 R에서의 각도를 기준으로 큰 값을 갖게 된다.(highlight around R)
 
