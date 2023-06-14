@@ -124,7 +124,9 @@ $$ {\triangledown}_{M}^{2}f = |{{{\partial}^2 f} \over {{\partial} x^2}}| + |{{{
 
 - 각 pixel size: (2K+1, 2K+1)
 
-$$ M(x, y) = {\sum}_{i=x-K}^{x+K} {\sum}_{i=y-K}^{y+K} {\triangledown}_{M}^{2}f(i,j) $$
+```math
+M(x, y) = {\sum}_{i=x-K}^{x+K} {\sum}_{i=y-K}^{y+K} {\triangledown}_{M}^{2}f(i,j)
+```
 
 ---
 
@@ -194,7 +196,11 @@ $$ o = {{sf} \over {s - f + b(f/D)}} $$
 
 ![DFD problem](images/DFD_problem.png)
 
-그렇다면 이미지가 두 개 있다면 어떨까? 동일한 scene에서 Defocus PSF만 $h_{{\sigma}_1}(x, y), h_{{\sigma}_2}(x, y)$ 만 다르게 한다.
+그렇다면 이미지가 두 개 있다면 어떨까? 동일한 scene에서 다음의 Defocus PSF를 다르게 조절한다. 
+
+```math
+h_{{\sigma}_1}(x, y), h_{{\sigma}_2}(x, y)
+```
 
 > ${\sigma}_1, {\sigma}_2$ 는 조리개를 얼마나 여는가에 따라 달라지게 할 수 있다.
 
@@ -230,17 +236,23 @@ $$ {{\sigma}_1 \over {\sigma}_2} = {{D1} \over {D2}} $$
 
 식을 다음과 같이 전개할 수 있다.
 
-$$ {{G_{1}(u, v)} \over {G_{2}(u, v)}} = {{F(u, v) \times H_{{\sigma}_1}(u, v)} \over {F(u, v) \times H_{{\sigma}_2}(u, v)}} = {{H_{{\sigma}_1}(u, v)} \over {H_{{\sigma}_2}(u, v)}} $$
+```math
+{{G_{1}(u, v)} \over {G_{2}(u, v)}} = {{F(u, v) \times H_{{\sigma}_1}(u, v)} \over {F(u, v) \times H_{{\sigma}_2}(u, v)}} = {{H_{{\sigma}_1}(u, v)} \over {H_{{\sigma}_2}(u, v)}}
+```
 
-$$ = {{\exp(-2 {\pi}^2 (u^2 + v^2) {\sigma}_{1}^2 )} \over {\exp(-2 {\pi}^2 (u^2 + v^2) {\sigma}_{2}^2 )}} $$
+```math
+= {{\exp(-2 {\pi}^2 (u^2 + v^2) {\sigma}_{1}^2 )} \over {\exp(-2 {\pi}^2 (u^2 + v^2) {\sigma}_{2}^2 )}}
+```
 
 로그를 취해서 양변을 정리하자.
 
-$$ {{\sigma}_1}^2 - {{\sigma}_2}^2 = {{\ln G_{2}(u,v) - \ln G_{1}(u,v)} \over {2 {\pi}^2 (u^2 + v^2) }}  $$
+```math
+{{\sigma}_1}^2 - {{\sigma}_2}^2 = {{\ln G_{2}(u,v) - \ln G_{1}(u,v)} \over {2 {\pi}^2 (u^2 + v^2) }}  
+```
 
 $$ {{\sigma}_1 \over {\sigma}_2} = {{D1} \over {D2}} $$
 
-${\sigma}_1$ 나 ${\sigma}_2$ 중 하나만 있으면 위 식을 해결할 수 있다. 여기서 문제는 $G_{1}$ 과 $G_{2}$ 를 사용할 때 high frequency 값을 사용해야 한다는 점이다.
+${σ}_1$ 나 ${σ}_2$ 중 하나만 있으면 위 식을 해결할 수 있다. 여기서 문제는 $G_{1}$ 과 $G_{2}$ 를 사용할 때 high frequency 값을 사용해야 한다는 점이다.
 
 > 따라서 이 접근법은 noise에 민감하다.
 
